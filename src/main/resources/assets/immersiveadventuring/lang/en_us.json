@@ -1,0 +1,13 @@
+{
+  "itemGroup.immersiveadventuring": "Example Mod Tab",
+  "block.immersiveadventuring.example_block": "Example Block",
+  "item.immersiveadventuring.example_item": "Example Item",
+
+  "immersiveadventuring.configuration.title": "Immersive Adventuring Configs",
+  "immersiveadventuring.configuration.section.immersiveadventuring.common.toml": "Immersive Adventuring Configs",
+  "immersiveadventuring.configuration.section.immersiveadventuring.common.toml.title": "Immersive Adventuring Configs",
+  "immersiveadventuring.configuration.items": "Item List",
+  "immersiveadventuring.configuration.logDirtBlock": "Log Dirt Block",
+  "immersiveadventuring.configuration.magicNumberIntroduction": "Magic Number Text",
+  "immersiveadventuring.configuration.magicNumber": "Magic Number"
+}
