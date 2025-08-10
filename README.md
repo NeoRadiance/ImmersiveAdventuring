@@ -1,4 +1,5 @@
 # ImmersiveAdventuring
+
 A side mod about Immersive Engineering
 
 Big machines solve everything? Bored in immersive engineering? The blessing of industry makes you so strong that you have nothing to do? Try Immersive adventuring!
@@ -12,7 +13,11 @@ Mods are in the development stage, so please understand that the progress may be
 (Pictures are missing here for the time being)
 
 ——By MPCBexplorer 25/8/8
+
 ## Other
+
 (Temporarily missing)
+
 ## Thank-you list
+
 (Waiting for you)

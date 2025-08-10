@@ -1,0 +1,14 @@
+package team.neoradiance.immersiveadventuring;
+
+import net.minecraft.core.registries.Registries;
+import net.minecraft.world.item.CreativeModeTab;
+import net.neoforged.neoforge.registries.DeferredRegister;
+public class Register {
+     // Create a Deferred Register to hold Blocks which will all be registered under the "immersiveadventuring" namespace
+    public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(Lib.Modid);
+    // Create a Deferred Register to hold Items which will all be registered under the "immersiveadventuring" namespace
+    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Lib.Modid);
+    // Create a Deferred Register to hold CreativeModeTabs which will all be registered under the "immersiveadventuring" namespace
+    public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, Lib.Modid);
+
+}
