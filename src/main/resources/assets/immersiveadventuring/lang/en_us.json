@@ -1,7 +1,11 @@
 {
-  "itemGroup.immersiveadventuring": "Example Mod Tab",
+  "itemGroup.immersiveadventuring.nylon": "Nylon",
   "block.immersiveadventuring.example_block": "Example Block",
   "item.immersiveadventuring.example_item": "Example Item",
+
+  "item.immersiveadventuring.nylon_nugget": "Nylon Nugget",
+  "item.immersiveadventuring.nylon_ingot": "Nylon Ingot",
+  "block.immersiveadventuring.nylon_block": "Nylon Block",
 
   "immersiveadventuring.configuration.title": "Immersive Adventuring Configs",
   "immersiveadventuring.configuration.section.immersiveadventuring.common.toml": "Immersive Adventuring Configs",

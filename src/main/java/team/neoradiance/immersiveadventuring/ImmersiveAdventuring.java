@@ -18,7 +18,8 @@ import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import static team.neoradiance.immersiveadventuring.Register.BLOCKS;
 import static team.neoradiance.immersiveadventuring.Register.ITEMS;
 import static team.neoradiance.immersiveadventuring.Register.CREATIVE_MODE_TABS;
-import team.neoradiance.immersiveadventuring.common.examples.ExampleTab;
+//import team.neoradiance.immersiveadventuring.common.examples.ExampleTab;
+import team.neoradiance.immersiveadventuring.common.nylon.NylonTab;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(ImmersiveAdventuring.MODID)
@@ -82,6 +83,7 @@ public class ImmersiveAdventuring {
 
     private void load() {
         // Triggers class loading
-        ExampleTab.load();
+        //ExampleTab.load();
+        NylonTab.load();
     }
 }
