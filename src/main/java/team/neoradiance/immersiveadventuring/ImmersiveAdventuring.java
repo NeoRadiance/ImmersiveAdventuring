@@ -20,6 +20,7 @@ import static team.neoradiance.immersiveadventuring.Register.ITEMS;
 import static team.neoradiance.immersiveadventuring.Register.CREATIVE_MODE_TABS;
 //import team.neoradiance.immersiveadventuring.common.examples.ExampleTab;
 import team.neoradiance.immersiveadventuring.common.nylon.NylonTab;
+import team.neoradiance.immersiveadventuring.common.iemetalexpansions.IEMetalExpansionTab;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(ImmersiveAdventuring.MODID)
@@ -85,5 +86,6 @@ public class ImmersiveAdventuring {
         // Triggers class loading
         //ExampleTab.load();
         NylonTab.load();
+        IEMetalExpansionTab.load();
     }
 }

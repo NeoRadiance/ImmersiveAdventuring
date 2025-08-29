@@ -1,4 +1,5 @@
 {
+  "itemGroup.immersiveadventuring.iemetalexpansions": "IE Metal Expansions",
   "itemGroup.immersiveadventuring.nylon": "Nylon",
   "block.immersiveadventuring.example_block": "Example Block",
   "item.immersiveadventuring.example_item": "Example Item",
@@ -7,6 +8,8 @@
   "item.immersiveadventuring.nylon_ingot": "Nylon Ingot",
   "block.immersiveadventuring.nylon_block": "Nylon Block",
 
+  "item.immersiveadventuring.lead_sword": "Lead Sword",
+  
   "immersiveadventuring.configuration.title": "Immersive Adventuring Configs",
   "immersiveadventuring.configuration.section.immersiveadventuring.common.toml": "Immersive Adventuring Configs",
   "immersiveadventuring.configuration.section.immersiveadventuring.common.toml.title": "Immersive Adventuring Configs",
