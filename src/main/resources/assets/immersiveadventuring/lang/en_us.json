@@ -9,7 +9,11 @@
   "block.immersiveadventuring.nylon_block": "Nylon Block",
 
   "item.immersiveadventuring.lead_sword": "Lead Sword",
-  
+  "item.immersiveadventuring.lead_pickaxe": "Lead Pickaxe",
+  "item.immersiveadventuring.lead_axe": "Lead Axe",
+  "item.immersiveadventuring.lead_hoe": "Lead Hoe",
+  "item.immersiveadventuring.lead_shovel": "Lead Shovel",
+
   "immersiveadventuring.configuration.title": "Immersive Adventuring Configs",
   "immersiveadventuring.configuration.section.immersiveadventuring.common.toml": "Immersive Adventuring Configs",
   "immersiveadventuring.configuration.section.immersiveadventuring.common.toml.title": "Immersive Adventuring Configs",

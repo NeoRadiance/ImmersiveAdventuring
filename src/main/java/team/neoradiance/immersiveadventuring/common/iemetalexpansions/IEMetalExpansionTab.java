@@ -16,7 +16,11 @@ public class IEMetalExpansionTab {
             .withTabsBefore(CreativeModeTabs.COMBAT)
             .icon(() -> new net.minecraft.world.item.ItemStack(net.minecraft.core.registries.BuiltInRegistries.ITEM.get(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("immersiveengineering", "ingot_lead"))))
             .displayItems((parameters, output) -> {
-                output.accept(LeadTools.LEAD_SWORD.get()); 
+                output.accept(LeadTools.LEAD_SWORD.get());
+                output.accept(LeadTools.LEAD_PICKAXE.get());
+                output.accept(LeadTools.LEAD_SHOVEL.get());
+                output.accept(LeadTools.LEAD_HOE.get());
+                output.accept(LeadTools.LEAD_AXE.get());
             }).build());
     public static void load(){
         LeadTools.load();
