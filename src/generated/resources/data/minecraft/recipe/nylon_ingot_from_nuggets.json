@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "immersiveadventuring:nylon_nugget"
+    },
+    {
+      "item": "immersiveadventuring:nylon_nugget"
+    },
+    {
+      "item": "immersiveadventuring:nylon_nugget"
+    },
+    {
+      "item": "immersiveadventuring:nylon_nugget"
+    },
+    {
+      "item": "immersiveadventuring:nylon_nugget"
+    },
+    {
+      "item": "immersiveadventuring:nylon_nugget"
+    },
+    {
+      "item": "immersiveadventuring:nylon_nugget"
+    },
+    {
+      "item": "immersiveadventuring:nylon_nugget"
+    },
+    {
+      "item": "immersiveadventuring:nylon_nugget"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "immersiveadventuring:nylon_ingot"
+  }
+}

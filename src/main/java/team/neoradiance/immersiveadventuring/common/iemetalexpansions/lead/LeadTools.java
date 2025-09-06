@@ -7,6 +7,8 @@ import net.neoforged.neoforge.common.Tags;
 
 import java.util.function.Supplier;
 
+import static blusunrize.immersiveengineering.api.IETags.getIngot;
+import static blusunrize.immersiveengineering.api.utils.TagUtils.createItemWrapper;
 import static team.neoradiance.immersiveadventuring.Register.ITEMS;
 
 public class LeadTools {
@@ -32,7 +34,7 @@ public class LeadTools {
             20,
             // Determines the repair ingredient of the tier. Use a supplier for lazy
             // initializing.
-            () -> Ingredient.of(Tags.Items.INGOTS_COPPER));
+            () -> Ingredient.of(createItemWrapper(getIngot("lead"))));
     public static final Supplier<SwordItem> LEAD_SWORD = ITEMS.register("lead_sword", () -> new SwordItem(
             // The tier to use.
             LEAD_TIER,

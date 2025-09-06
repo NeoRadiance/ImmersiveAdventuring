@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "immersiveadventuring:item/nylon_nugget"
+  }
+}

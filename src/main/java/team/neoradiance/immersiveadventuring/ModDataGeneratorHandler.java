@@ -9,6 +9,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
+import team.neoradiance.immersiveadventuring.common.nylon.NylonRecipeProvider;
 
 @EventBusSubscriber(modid = Lib.Modid)
 public class ModDataGeneratorHandler {
@@ -30,7 +31,7 @@ public class ModDataGeneratorHandler {
             // Since recipes are server data, we only run them in a server datagen.
             event.includeServer(),
             // Our provider.
-            new ModRecipeProvider(output, lookupProvider)
+            new NylonRecipeProvider(output, lookupProvider)
     );
     // Other data providers here.
     }

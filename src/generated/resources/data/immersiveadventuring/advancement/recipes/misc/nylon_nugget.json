@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_nylon_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": "immersiveadventuring:nylon_ingot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "immersiveadventuring:nylon_nugget"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_nylon_ingot"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "immersiveadventuring:nylon_nugget"
+    ]
+  }
+}
