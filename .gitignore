@@ -13,6 +13,10 @@ out
 *.iml
 .idea
 
+qodana.sarif.json
+qodana.yaml
+RunMeBeforeTesting.bat
+
 # gradle
 build
 .gradle

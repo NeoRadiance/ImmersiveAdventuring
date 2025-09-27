@@ -13,6 +13,10 @@
   "item.immersiveadventuring.lead_axe": "Lead Axe",
   "item.immersiveadventuring.lead_hoe": "Lead Hoe",
   "item.immersiveadventuring.lead_shovel": "Lead Shovel",
+    "item.immersiveadventuring.lead_helmet": "Lead Helmet",
+  "item.immersiveadventuring.lead_chestplate": "Lead Chestplate",
+  "item.immersiveadventuring.lead_leggings": "Lead Leggings",
+  "item.immersiveadventuring.lead_boots": "Lead Boots",
 
   "immersiveadventuring.configuration.title": "Immersive Adventuring Configs",
   "immersiveadventuring.configuration.section.immersiveadventuring.common.toml": "Immersive Adventuring Configs",

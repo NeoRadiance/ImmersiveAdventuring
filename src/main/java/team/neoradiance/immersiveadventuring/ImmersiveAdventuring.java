@@ -15,12 +15,11 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 
-import static team.neoradiance.immersiveadventuring.Register.BLOCKS;
-import static team.neoradiance.immersiveadventuring.Register.ITEMS;
-import static team.neoradiance.immersiveadventuring.Register.CREATIVE_MODE_TABS;
 //import team.neoradiance.immersiveadventuring.common.examples.ExampleTab;
 import team.neoradiance.immersiveadventuring.common.nylon.NylonTab;
 import team.neoradiance.immersiveadventuring.common.iemetalexpansions.IEMetalExpansionTab;
+
+import static team.neoradiance.immersiveadventuring.Register.*;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(ImmersiveAdventuring.MODID)
@@ -45,6 +44,7 @@ public class ImmersiveAdventuring {
         // Register the Deferred Register to the mod event bus so tabs get registered
         CREATIVE_MODE_TABS.register(modEventBus);
 
+        ARMOR_MATERIALS.register(modEventBus);
         // Register ourselves for server and other game events we are interested in.
         // Note that this is necessary if and only if we want *this* class (ImmersiveAdventuring) to respond directly to events.
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.

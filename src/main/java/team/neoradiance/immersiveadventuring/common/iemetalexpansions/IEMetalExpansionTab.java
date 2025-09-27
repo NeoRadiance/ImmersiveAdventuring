@@ -21,9 +21,14 @@ public class IEMetalExpansionTab {
                 output.accept(LeadTools.LEAD_SHOVEL.get());
                 output.accept(LeadTools.LEAD_HOE.get());
                 output.accept(LeadTools.LEAD_AXE.get());
+                output.accept(LeadArmor.LEAD_HELMET.get());
+                output.accept(LeadArmor.LEAD_CHESTPLATE.get());
+                output.accept(LeadArmor.LEAD_LEGGINGS.get());
+                output.accept(LeadArmor.LEAD_BOOTS.get());
             }).build());
     public static void load(){
         LeadTools.load();
+        LeadArmor.load();
         // Log the loading of the IE metal expansion tab
         team.neoradiance.immersiveadventuring.ImmersiveAdventuring.LOGGER.info("Loading IEMetalExpansionTab");
     }
