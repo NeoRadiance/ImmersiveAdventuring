@@ -22,6 +22,88 @@ import static team.neoradiance.immersiveadventuring.Register.ITEMS;
 
 import team.neoradiance.immersiveadventuring.Lib;
 
+/**
+ * Lead Armor Implementation
+ * <p>
+ * This class defines the lead armor material and registers lead armor items.
+ * Lead armor is positioned between chainmail and iron armor in terms of protection and durability.
+ * <p>
+ * <h2>Armor Material Properties</h2>
+ * <table border="1">
+ *   <tr>
+ *     <th>Property</th>
+ *     <th>Value</th>
+ *     <th>Description</th>
+ *   </tr>
+ *   <tr>
+ *     <td>Defense Values</td>
+ *     <td>Boots: 2, Leggings: 4, Chestplate: 6, Helmet: 2, Body: 4</td>
+ *     <td>Protection values for each armor piece</td>
+ *   </tr>
+ *   <tr>
+ *     <td>Enchantability</td>
+ *     <td>20</td>
+ *     <td>Slightly below gold (25), representing how good enchantments will be</td>
+ *   </tr>
+ *   <tr>
+ *     <td>Sound</td>
+ *     <td>ARMOR_EQUIP_GENERIC</td>
+ *     <td>Sound played when equipping this armor</td>
+ *   </tr>
+ *   <tr>
+ *     <td>Repair Item</td>
+ *     <td>Lead Ingot</td>
+ *     <td>Item used to repair lead armor</td>
+ *   </tr>
+ *   <tr>
+ *     <td>Toughness</td>
+ *     <td>1</td>
+ *     <td>Additional damage reduction factor (diamond: 2, netherite: 3)</td>
+ *   </tr>
+ *   <tr>
+ *     <td>Knockback Resistance</td>
+ *     <td>0.1f</td>
+ *     <td>Immunity to knockback (netherite: 0.1f)</td>
+ *   </tr>
+ * </table>
+ * <p>
+ * <h2>Armor Item Properties</h2>
+ * <table border="1">
+ *   <tr>
+ *     <th>Armor Piece</th>
+ *     <th>Durability</th>
+ *     <th>Description</th>
+ *   </tr>
+ *   <tr>
+ *     <td>Helmet</td>
+ *     <td>225</td>
+ *     <td>15 * 15 (base * helmet multiplier)</td>
+ *   </tr>
+ *   <tr>
+ *     <td>Chestplate</td>
+ *     <td>240</td>
+ *     <td>15 * 16 (base * chestplate multiplier)</td>
+ *   </tr>
+ *   <tr>
+ *     <td>Leggings</td>
+ *     <td>225</td>
+ *     <td>15 * 15 (base * leggings multiplier)</td>
+ *   </tr>
+ *   <tr>
+ *     <td>Boots</td>
+ *     <td>195</td>
+ *     <td>15 * 13 (base * boots multiplier)</td>
+ *   </tr>
+ * </table>
+ * <p>
+ * <h2>Design Philosophy</h2>
+ * <ul>
+ *   <li><strong>Protection</strong>: Lead armor provides more protection than chainmail but less than iron</li>
+ *   <li><strong>Durability</strong>: More durable than chainmail but less than iron</li>
+ *   <li><strong>Special Properties</strong>: Lead's weight provides additional toughness and knockback resistance</li>
+ *   <li><strong>Enchantability</strong>: Higher than iron, making it good for early-game enchanted armor</li>
+ * </ul>
+ */
 public class LeadArmor {
     // ARMOR_MATERIALS is a DeferredRegister<ArmorMaterial>
     // We place lead somewhere between chainmail and iron.
@@ -69,12 +151,14 @@ public class LeadArmor {
                     // damage calculation, for more information, refer to the Minecraft Wiki's article on armor mechanics:
                     // https://minecraft.wiki/w/Armor#Armor_toughness
                     // Only diamond and netherite have values greater than 0 here, so we just return 0.
-                    0,
+                    // Wait.Lead is soft you know?
+                    1,
                     // Returns the knockback resistance value of the armor. While wearing this armor, the player is
                     // immune to knockback to some degree. If the player has a total knockback resistance value of 1 or greater
                     // from all armor pieces combined, they will not take any knockback at all.
                     // Only netherite has values greater than 0 here, so we just return 0.
-                    0
+                    // Lead is heavy also.
+                    0.1f
             ));
     public static final Supplier<ArmorItem> LEAD_HELMET = ITEMS.register("lead_helmet", () -> new ArmorItem(
             // The armor material to use.
