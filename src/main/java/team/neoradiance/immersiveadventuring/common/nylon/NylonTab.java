@@ -20,11 +20,14 @@ public class NylonTab {
                 output.accept(NylonNuggetItem.NYLON_NUGGET_ITEM.get()); // Add the nylon item to the tab. For your own tabs, this method is preferred over the event
                 output.accept(NylonIngotItem.NYLON_INGOT_ITEM.get());
                 output.accept(NylonBlock.NYLON_BLOCK_ITEM.get());
+                output.accept(NylonPlateItem.NYLON_PLATE_ITEM.get());
             }).build());
-    public static void load(){
+
+    public static void load() {
         NylonBlock.load();
         NylonIngotItem.load();
         NylonNuggetItem.load();
+        NylonPlateItem.load();
         // Log the loading of the nylon tab
         team.neoradiance.immersiveadventuring.ImmersiveAdventuring.LOGGER.info("Loading NylonTab");
     }

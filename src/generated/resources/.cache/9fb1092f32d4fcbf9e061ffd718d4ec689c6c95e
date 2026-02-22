@@ -1,6 +1,7 @@
-// 1.21.1	2026-02-15T11:37:21.4721395	Recipes
+// 1.21.1	2026-02-22T11:59:02.85591	Recipes
 3fd8060893b33bd5b50760efa07662c8131d4286 data/immersiveadventuring/advancement/recipes/misc/nylon_block.json
 18caf8cd0ee9eb28319841b1e2adfc407978d013 data/immersiveadventuring/advancement/recipes/misc/nylon_nugget.json
+a0fcbebd182356c913fda9c16db193bf0089503a data/immersiveadventuring/recipe/metalpress/plate_nylon.json
 d355ffe6baa97d3e8e0fa6c0944ea5aad1b37735 data/immersiveadventuring/recipe/nylon_block.json
 1ebb7b0c8d5ed2a15d87c053f967e122004cdee0 data/immersiveadventuring/recipe/nylon_nugget.json
 d9020c20cddd0079861cd77b7e17864c6278d6e5 data/minecraft/advancement/recipes/misc/nylon_ingot_from_block.json

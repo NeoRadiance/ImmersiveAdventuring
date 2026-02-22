@@ -15,7 +15,6 @@ out
 
 qodana.sarif.json
 qodana.yaml
-RunMeBeforeTesting.bat
 .vscode
 
 # gradle

@@ -1,5 +1,9 @@
 package team.neoradiance.immersiveadventuring.common.nylon;
 
+import blusunrize.immersiveengineering.api.crafting.IngredientWithSize;
+import blusunrize.immersiveengineering.api.crafting.MetalPressRecipe;
+import blusunrize.immersiveengineering.api.crafting.TagOutput;
+import blusunrize.immersiveengineering.common.register.IEItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.RecipeCategory;
@@ -7,6 +11,7 @@ import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 
+import net.minecraft.world.level.ItemLike;
 import org.jetbrains.annotations.NotNull;
 import team.neoradiance.immersiveadventuring.common.nylon.blocks.NylonBlock;
 import team.neoradiance.immersiveadventuring.common.nylon.items.NylonIngotItem;
@@ -14,18 +19,97 @@ import team.neoradiance.immersiveadventuring.common.nylon.items.NylonNuggetItem;
 
 import java.util.concurrent.CompletableFuture;
 
+import static blusunrize.immersiveengineering.api.utils.TagUtils.createItemWrapper;
+import static team.neoradiance.immersiveadventuring.Utilities.toRL;
+import static team.neoradiance.immersiveadventuring.Utilities.getConditions;
+
 /**
- * Vanilla Crafting Recipe Provider
+ * Vanilla Crafting and Immersive Engineering Recipe Provider
  * <p>
- * This class generates vanilla Minecraft crafting recipes for nylon items.
- * It handles the basic crafting recipes like ingot to block, nugget to ingot, etc.
+ * This class generates both vanilla Minecraft crafting recipes and Immersive Engineering
+ * metal press recipes for nylon items. It handles:
+ * <ul>
+ *   <li>Basic vanilla crafting recipes (ingot to block, nugget to ingot, etc.)</li>
+ *   <li>Immersive Engineering metal press recipes (ingot to plate)</li>
+ * </ul>
  * <p>
- * Note: Part of recipes for Immersive Engineering Metal Press have no need to be
- * written.IE will load them recording to vanilla recipes. But others ,not simply
- * packing or unpacking ,and for other multiblock structures ,are need to do some
- * extra work.
+ * <h2>Immersive Engineering Recipe Generation Mechanism</h2>
  * <p>
- * IE recipe location: src/generated/resources/data/immersiveadventuring/recipe/IErecipe/nylon
+ * <h3>Recipe Loading Process</h3>
+ * <ol>
+ *   <li><strong>Initial Trigger</strong>: When an ItemEntity collides with the input position of a Metal Press,
+ *       the {@code onEntityCollision} method is called.</li>
+ *   <li><strong>Recipe Lookup Initialization</strong>: The {@code MetalPressRecipe.findRecipe(mold, input, world)} method
+ *       is called to find a matching recipe.</li>
+ *   <li><strong>Recipe Grouping</strong>: The {@code getRecipesByMold(world)} method retrieves recipes grouped by mold type.
+ *       It uses a caching mechanism to improve performance.</li>
+ *   <li><strong>Recipe Matching</strong>: Each recipe's {@code matches(mold, input, world)} method is called to check
+ *       if it can process the current input.</li>
+ *   <li><strong>Actual Recipe Retrieval</strong>: If a matching recipe is found, {@code getActualRecipe(recipeId, mold, input, world)}
+ *       is called to get the specific recipe instance for the current input.</li>
+ *   <li><strong>Process Creation</strong>: A processing instance is created based on the recipe type.</li>
+ * </ol>
+ * <p>
+ * <h3>Tag System Integration</h3>
+ * <p>
+ * IE recipes use tags for better compatibility and extensibility:
+ * <ul>
+ *   <li><strong>Tag Advantages</strong>:
+ *     <ul>
+ *       <li>Cross-mod compatibility: Different mods can share the same tags</li>
+ *       <li>Extensibility: New items can be added to existing tags without modifying recipes</li>
+ *       <li>Logical consistency: Items can be categorized and processed uniformly</li>
+ *     </ul>
+ *   </li>
+ *   <li><strong>Tag Usage</strong>:
+ *     <ul>
+ *       <li>Input: Uses {@code c:ingots/nylon} tag for nylon ingots</li>
+ *       <li>Output: Uses {@code c:plates/nylon} tag for nylon plates</li>
+ *     </ul>
+ *   </li>
+ * </ul>
+ * <p>
+ * <h3>Recipe Construction</h3>
+ * <p>
+ * For Immersive Engineering metal press recipes:
+ * <ol>
+ *   <li><strong>Input Creation</strong>: Create an {@code IngredientWithSize} using the input tag</li>
+ *   <li><strong>Output Creation</strong>: Create a {@code TagOutput} using the output tag</li>
+ *   <li><strong>Mold Selection</strong>: Specify the appropriate mold (e.g., {@code IEItems.Molds.MOLD_PLATE})</li>
+ *   <li><strong>Recipe Creation</strong>: Create a {@code MetalPressRecipe} with input, output, mold, and energy</li>
+ *   <li><strong>Recipe Registration</strong>: Accept the recipe through the {@code RecipeOutput} interface</li>
+ * </ol>
+ * <p>
+ * <h3>Namespace Considerations</h3>
+ * <p>
+ * <ul>
+ *   <li><strong>Minecraft Data Loading Rules</strong>: Each mod can only manage data in its own namespace</li>
+ *   <li><strong>Correct Path</strong>: Recipes should be generated in {@code data/immersiveadventuring/recipe/}</li>
+ *   <li><strong>IE Scanning</strong>: IE retrieves all recipes through {@code RecipeManager}, regardless of namespace</li>
+ *   <li><strong>Type Identification</strong>: IE identifies recipes by their {@code type} field ({@code immersiveengineering:metal_press})</li>
+ * </ul>
+ * <p>
+ * <h3>Data Generation</h3>
+ * <p>
+ * <ul>
+ *   <li><strong>Tag Generation</strong>: Tags are generated by {@code NylonItemTagsProvider} in the {@code c} namespace</li>
+ *   <li><strong>Recipe Generation</strong>: Recipes are generated by this class and saved to the correct location</li>
+ *   <li><strong>Cache Management</strong>: IE uses {@code CachedRecipeList} to cache recipes for improved performance</li>
+ * </ul>
+ * <p>
+ * <h2>Recipe Locations</h2>
+ * <ul>
+ *   <li><strong>Vanilla Recipes</strong>: {@code src/generated/resources/data/immersiveadventuring/recipe/}</li>
+ *   <li><strong>IE Metal Press Recipes</strong>: {@code src/generated/resources/data/immersiveadventuring/recipe/metalpress/}</li>
+ *   <li><strong>Tags</strong>: {@code src/generated/resources/data/c/tags/item/}</li>
+ * </ul>
+ * <p>
+ * <h2>Performance Optimization</h2>
+ * <ul>
+ *   <li><strong>Recipe Caching</strong>: IE caches recipes grouped by mold type to reduce lookup time</li>
+ *   <li><strong>Lazy Loading</strong>: Caches are only updated when recipes change</li>
+ *   <li><strong>Efficient Lookup</strong>: Only recipes for the current mold are checked during matching</li>
+ * </ul>
  */
 public class NylonRecipeProvider extends RecipeProvider {
     //https://docs.neoforged.net/docs/datagen/server/recipes
@@ -56,5 +140,12 @@ public class NylonRecipeProvider extends RecipeProvider {
                 .requires(NylonBlock.NYLON_BLOCK_ITEM.get(), 1)
                 .unlockedBy("has_nylon_block", has(NylonBlock.NYLON_BLOCK_ITEM.get()))
                 .save(pRecipeOutput, "nylon_ingot_from_block");
+        //尼龙制成板不可以用工程师锤或四个尼龙锭合成
+        //TODO 写到工程师手册里，因为这是一个特殊的“金属”，考虑到硬度和耐磨性（其实是我懒得写这部分代码，这句话不要写进去）
+        IngredientWithSize input = new IngredientWithSize(createItemWrapper(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("c", "ingots/nylon")));
+        TagOutput output = new TagOutput(createItemWrapper(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("c", "plates/nylon")), 1);
+        ItemLike mold = IEItems.Molds.MOLD_PLATE;
+        MetalPressRecipe recipe = new MetalPressRecipe(output, input, mold.asItem(), 2400);
+        pRecipeOutput.accept(toRL("metalpress/plate_nylon"), recipe, null, getConditions());
     }
 }

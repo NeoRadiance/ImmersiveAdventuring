@@ -11,7 +11,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.Ingredient;
 
 
-
 import java.util.EnumMap;
 import java.util.List;
 import java.util.function.Supplier;
@@ -20,6 +19,7 @@ import static blusunrize.immersiveengineering.api.IETags.getIngot;
 import static blusunrize.immersiveengineering.api.utils.TagUtils.createItemWrapper;
 import static team.neoradiance.immersiveadventuring.Register.ARMOR_MATERIALS;
 import static team.neoradiance.immersiveadventuring.Register.ITEMS;
+
 import team.neoradiance.immersiveadventuring.Lib;
 
 public class LeadArmor {
@@ -50,7 +50,7 @@ public class LeadArmor {
                             // - 'assets/mod_id/textures/models/armor/lead_layer_1.png' for the outer texture
                             // - 'assets/mod_id/textures/models/armor/lead_layer_2.png' for the inner texture (only legs)
                             new ArmorMaterial.Layer(
-                                    ResourceLocation.fromNamespaceAndPath(Lib.Modid, "lead")
+                                    ResourceLocation.fromNamespaceAndPath(Lib.MOD_ID, "lead")
                             )
                             /*
 
@@ -104,7 +104,8 @@ public class LeadArmor {
             ArmorItem.Type.BOOTS,
             new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(15))
     ));
-    public static void load(){
+
+    public static void load() {
         team.neoradiance.immersiveadventuring.ImmersiveAdventuring.LOGGER.info("Loading LeadArmor");
     }
 }
