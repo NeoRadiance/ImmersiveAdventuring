@@ -9,8 +9,8 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
+import team.neoradiance.immersiveadventuring.common.ModRecipeProvider;
 import team.neoradiance.immersiveadventuring.common.nylon.NylonBlockTagsProvider;
-import team.neoradiance.immersiveadventuring.common.nylon.NylonRecipeProvider;
 import team.neoradiance.immersiveadventuring.common.nylon.NylonItemTagsProvider;
 
 /**
@@ -91,7 +91,7 @@ public class ModDataGeneratorHandler {
                 // Since recipes are server data, we only run them in a server datagen.
                 event.includeServer(),
                 // Our provider.
-                new NylonRecipeProvider(output, lookupProvider)
+                new ModRecipeProvider(output, lookupProvider)
         );
         // Other data providers here.
         NylonBlockTagsProvider nylonBlockTagsProvider = new NylonBlockTagsProvider(output, lookupProvider, existingFileHelper);

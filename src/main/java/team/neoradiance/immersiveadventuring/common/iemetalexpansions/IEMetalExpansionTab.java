@@ -1,19 +1,22 @@
 package team.neoradiance.immersiveadventuring.common.iemetalexpansions;
 
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.neoforge.registries.DeferredHolder;
 
+import team.neoradiance.immersiveadventuring.Lib;
 import team.neoradiance.immersiveadventuring.Register;
+import team.neoradiance.immersiveadventuring.common.iemetalexpansions.aluminum.AluminumArmor;
+import team.neoradiance.immersiveadventuring.common.iemetalexpansions.aluminum.AluminumTools;
 import team.neoradiance.immersiveadventuring.common.iemetalexpansions.lead.*;
 
 public class IEMetalExpansionTab {
 
-    // Creates a creative tab with the id "immersiveadventuring:nylon_tab" for the nylon item, that is placed after the combat tab
+    // Creates a creative tab with the id "immersiveadventuring:ie_metal_expansion_tab" for the IE metal expansion items, that is placed after the nylon tab
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> IE_METAL_EXPANSION_TAB = Register.CREATIVE_MODE_TABS.register("ie_metal_expansion_tab", () -> CreativeModeTab.builder()
             .title(Component.translatable("itemGroup.immersiveadventuring.iemetalexpansions")) //The language key for the title of your CreativeModeTab
-            .withTabsBefore(CreativeModeTabs.COMBAT)
+            .withTabsBefore(ResourceLocation.fromNamespaceAndPath(Lib.MOD_ID, "nylon_tab"))
             .icon(() -> new net.minecraft.world.item.ItemStack(net.minecraft.core.registries.BuiltInRegistries.ITEM.get(net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("immersiveengineering", "ingot_lead"))))
             .displayItems((parameters, output) -> {
                 output.accept(LeadTools.LEAD_SWORD.get());
@@ -25,10 +28,22 @@ public class IEMetalExpansionTab {
                 output.accept(LeadArmor.LEAD_CHESTPLATE.get());
                 output.accept(LeadArmor.LEAD_LEGGINGS.get());
                 output.accept(LeadArmor.LEAD_BOOTS.get());
+                output.accept(AluminumTools.ALUMINUM_SWORD.get());
+                output.accept(AluminumTools.ALUMINUM_PICKAXE.get());
+                output.accept(AluminumTools.ALUMINUM_SHOVEL.get());
+                output.accept(AluminumTools.ALUMINUM_HOE.get());
+                output.accept(AluminumTools.ALUMINUM_AXE.get());
+                output.accept(AluminumArmor.ALUMINUM_HELMET.get());
+                output.accept(AluminumArmor.ALUMINUM_CHESTPLATE.get());
+                output.accept(AluminumArmor.ALUMINUM_LEGGINGS.get());
+                output.accept(AluminumArmor.ALUMINUM_BOOTS.get());
             }).build());
-    public static void load(){
+
+    public static void load() {
         LeadTools.load();
         LeadArmor.load();
+        AluminumTools.load();
+        AluminumArmor.load();
         // Log the loading of the IE metal expansion tab
         team.neoradiance.immersiveadventuring.ImmersiveAdventuring.LOGGER.info("Loading IEMetalExpansionTab");
     }

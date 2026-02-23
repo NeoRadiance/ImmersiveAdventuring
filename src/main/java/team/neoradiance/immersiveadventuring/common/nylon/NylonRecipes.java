@@ -8,11 +8,10 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
-import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
-
 import net.minecraft.world.level.ItemLike;
 import org.jetbrains.annotations.NotNull;
+import team.neoradiance.immersiveadventuring.common.ModRecipeProvider;
 import team.neoradiance.immersiveadventuring.common.nylon.blocks.NylonBlock;
 import team.neoradiance.immersiveadventuring.common.nylon.items.NylonIngotItem;
 import team.neoradiance.immersiveadventuring.common.nylon.items.NylonNuggetItem;
@@ -20,8 +19,8 @@ import team.neoradiance.immersiveadventuring.common.nylon.items.NylonNuggetItem;
 import java.util.concurrent.CompletableFuture;
 
 import static blusunrize.immersiveengineering.api.utils.TagUtils.createItemWrapper;
-import static team.neoradiance.immersiveadventuring.Utilities.toRL;
 import static team.neoradiance.immersiveadventuring.Utilities.getConditions;
+import static team.neoradiance.immersiveadventuring.Utilities.toRL;
 
 /**
  * Vanilla Crafting and Immersive Engineering Recipe Provider
@@ -111,14 +110,17 @@ import static team.neoradiance.immersiveadventuring.Utilities.getConditions;
  *   <li><strong>Efficient Lookup</strong>: Only recipes for the current mold are checked during matching</li>
  * </ul>
  */
-public class NylonRecipeProvider extends RecipeProvider {
-    //https://docs.neoforged.net/docs/datagen/server/recipes
-    public NylonRecipeProvider(PackOutput pPackOutput, CompletableFuture<HolderLookup.Provider> lookupProvider) {
+public class NylonRecipes extends ModRecipeProvider {
+    //https://docs.neoforged.net/docs/1.21.1/resources/server/recipes/builtin/
+    public NylonRecipes(PackOutput pPackOutput, CompletableFuture<HolderLookup.Provider> lookupProvider) {
         super(pPackOutput, lookupProvider);
     }
 
+    /**
+     * Build nylon-related recipes
+     */
     @Override
-    protected void buildRecipes(@NotNull RecipeOutput pRecipeOutput) {
+    public void buildRecipes(@NotNull RecipeOutput pRecipeOutput) {
         // 无序合成
         // 4*ingot -> 1*block
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, NylonBlock.NYLON_BLOCK_ITEM.get())
