@@ -1,4 +1,4 @@
-package team.neoradiance.immersiveadventuring.common;
+package team.neoradiance.immersiveadventuring.datagen;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -21,22 +21,25 @@ import java.util.concurrent.CompletableFuture;
  * the "Duplicate provider: Recipes" error, there can only be one root Provider. And because other Providers need to
  * access the protected has() method, they must extend this class.
  */
-public class ModRecipeProvider extends RecipeProvider {
-    private final PackOutput packOutput;
-    private final CompletableFuture<HolderLookup.Provider> lookupProvider;
+public class ModRecipesProvider extends RecipeProvider
+{
+	private final PackOutput packOutput;
+	private final CompletableFuture<HolderLookup.Provider> lookupProvider;
 
-    public ModRecipeProvider(PackOutput pPackOutput, CompletableFuture<HolderLookup.Provider> lookupProvider) {
-        super(pPackOutput, lookupProvider);
-        this.packOutput = pPackOutput;
-        this.lookupProvider = lookupProvider;
-    }
+	public ModRecipesProvider(PackOutput pPackOutput, CompletableFuture<HolderLookup.Provider> lookupProvider)
+	{
+		super(pPackOutput, lookupProvider);
+		this.packOutput = pPackOutput;
+		this.lookupProvider = lookupProvider;
+	}
 
 
-    @Override
-    protected void buildRecipes(@NotNull RecipeOutput pRecipeOutput) {
-        // Generate recipes for different materials
-        new NylonRecipes(this.packOutput, this.lookupProvider).buildRecipes(pRecipeOutput);
-        new LeadRecipes(this.packOutput, this.lookupProvider).buildRecipes(pRecipeOutput);
-        new AluminumRecipes(this.packOutput, this.lookupProvider).buildRecipes(pRecipeOutput);
-    }
+	@Override
+	protected void buildRecipes(@NotNull RecipeOutput pRecipeOutput)
+	{
+		// Generate recipes for different materials
+		new NylonRecipes(this.packOutput, this.lookupProvider).buildRecipes(pRecipeOutput);
+		new LeadRecipes(this.packOutput, this.lookupProvider).buildRecipes(pRecipeOutput);
+		new AluminumRecipes(this.packOutput, this.lookupProvider).buildRecipes(pRecipeOutput);
+	}
 }
