@@ -1,7 +1,5 @@
 package team.neoradiance.immersiveadventuring;
 
-import java.util.concurrent.CompletableFuture;
-
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
@@ -9,11 +7,11 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
-import team.neoradiance.immersiveadventuring.common.nylon.NylonBlockTags;
 import team.neoradiance.immersiveadventuring.datagen.ModBlockTagsProvider;
 import team.neoradiance.immersiveadventuring.datagen.ModItemTagsProvider;
 import team.neoradiance.immersiveadventuring.datagen.ModRecipesProvider;
-import team.neoradiance.immersiveadventuring.common.nylon.NylonItemTags;
+
+import java.util.concurrent.CompletableFuture;
 
 /**
  * Data Generator Handler

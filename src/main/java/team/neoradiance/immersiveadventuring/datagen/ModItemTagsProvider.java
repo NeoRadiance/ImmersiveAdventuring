@@ -5,7 +5,6 @@ import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.world.level.block.Block;
-import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import team.neoradiance.immersiveadventuring.Lib;
 import team.neoradiance.immersiveadventuring.common.nylon.NylonItemTags;
