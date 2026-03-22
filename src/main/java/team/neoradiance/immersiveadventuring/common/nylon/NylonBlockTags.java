@@ -1,9 +1,8 @@
 package team.neoradiance.immersiveadventuring.common.nylon;
 
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
+import team.neoradiance.immersiveadventuring.common.nylon.blocks.NylonBlock;
+import team.neoradiance.immersiveadventuring.utilities.TagWrapper;
 
 /**
  * Nylon Block Tags Definitions
@@ -13,6 +12,11 @@ import net.minecraft.world.level.block.Block;
  */
 public class NylonBlockTags
 {
-	public static final TagKey<Block> NYLON_BLOCKS = BlockTags.create(
-			ResourceLocation.fromNamespaceAndPath("c", "blocks/nylon"));
+	public static final TagWrapper<Block> NYLON_BLOCKS = new TagWrapper<>(Block.class, "c", "blocks/nylon");
+
+	static
+	{
+		NYLON_BLOCKS.add(NylonBlock.NYLON_BLOCK.get());
+	}
+
 }

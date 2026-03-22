@@ -8,9 +8,14 @@ import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.NotNull;
 import team.neoradiance.immersiveadventuring.Lib;
 import team.neoradiance.immersiveadventuring.common.nylon.NylonBlockTags;
-import team.neoradiance.immersiveadventuring.common.nylon.blocks.NylonBlock;
+
+import net.minecraft.world.level.block.Block;
+import team.neoradiance.immersiveadventuring.utilities.TagWrapper;
 
 import java.util.concurrent.CompletableFuture;
+
+
+import static team.neoradiance.immersiveadventuring.common.nylon.NylonBlockTags.NYLON_BLOCKS;
 
 /**
  * Mod Block Tags Provider
@@ -137,9 +142,17 @@ public class ModBlockTagsProvider extends BlockTagsProvider
 		this.existingFileHelper = existingFileHelper;
 	}
 
+	private void addAll(TagWrapper<Block> tagWrapper)
+	{
+		for(Block block : tagWrapper.list)
+		{
+			tag(tagWrapper.tag).add(block);
+		}
+	}
+
 	@Override
 	protected void addTags(@NotNull HolderLookup.Provider provider)
 	{
-		tag(NylonBlockTags.NYLON_BLOCKS).add(NylonBlock.NYLON_BLOCK.get());
+		addAll(NYLON_BLOCKS);
 	}
 }

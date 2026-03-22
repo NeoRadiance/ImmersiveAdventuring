@@ -19,8 +19,8 @@ import team.neoradiance.immersiveadventuring.common.nylon.items.NylonNuggetItem;
 import java.util.concurrent.CompletableFuture;
 
 import static blusunrize.immersiveengineering.api.utils.TagUtils.createItemWrapper;
-import static team.neoradiance.immersiveadventuring.Utilities.getConditions;
-import static team.neoradiance.immersiveadventuring.Utilities.toRL;
+import static team.neoradiance.immersiveadventuring.utilities.Utilities.getConditions;
+import static team.neoradiance.immersiveadventuring.utilities.Utilities.toRL;
 
 /**
  * Vanilla Crafting and Immersive Engineering Recipe Provider

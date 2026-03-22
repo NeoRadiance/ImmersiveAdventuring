@@ -1,9 +1,9 @@
 package team.neoradiance.immersiveadventuring.common.nylon;
 
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.ItemTags;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import team.neoradiance.immersiveadventuring.common.nylon.items.NylonIngotItem;
+import team.neoradiance.immersiveadventuring.common.nylon.items.NylonPlateItem;
+import team.neoradiance.immersiveadventuring.utilities.TagWrapper;
 
 /**
  * Nylon Item Tags Definitions
@@ -13,9 +13,16 @@ import net.minecraft.world.item.Item;
  */
 public class NylonItemTags
 {
-	public static final TagKey<Item> NYLON_INGOTS = ItemTags.create(
-			ResourceLocation.fromNamespaceAndPath("c", "ingots/nylon"));
-	
-	public static final TagKey<Item> NYLON_PLATES = ItemTags.create(
-			ResourceLocation.fromNamespaceAndPath("c", "plates/nylon"));
+	public static final TagWrapper<Item> NYLON_INGOTS = new TagWrapper<>(Item.class, "c", "ingots/nylon");
+	public static final TagWrapper<Item> NYLON_PLATES = new TagWrapper<>(Item.class, "c", "plates/nylon");
+
+	static
+	{
+		NYLON_INGOTS.add(NylonIngotItem.NYLON_INGOT_ITEM.get());
+	}
+
+	static
+	{
+		NYLON_PLATES.add(NylonPlateItem.NYLON_PLATE_ITEM.get());
+	}
 }

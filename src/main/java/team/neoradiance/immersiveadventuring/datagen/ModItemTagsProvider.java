@@ -4,14 +4,16 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import team.neoradiance.immersiveadventuring.Lib;
-import team.neoradiance.immersiveadventuring.common.nylon.NylonItemTags;
-import team.neoradiance.immersiveadventuring.common.nylon.items.NylonIngotItem;
-import team.neoradiance.immersiveadventuring.common.nylon.items.NylonPlateItem;
+import team.neoradiance.immersiveadventuring.utilities.TagWrapper;
 
 import java.util.concurrent.CompletableFuture;
+
+import static team.neoradiance.immersiveadventuring.common.nylon.NylonItemTags.NYLON_INGOTS;
+import static team.neoradiance.immersiveadventuring.common.nylon.NylonItemTags.NYLON_PLATES;
 
 public class ModItemTagsProvider extends ItemTagsProvider
 {
@@ -32,10 +34,18 @@ public class ModItemTagsProvider extends ItemTagsProvider
 		this.existingFileHelper = existingFileHelper;
 	}
 
+	private void addAll(TagWrapper<Item> tagWrapper)
+	{
+		for(Item item : tagWrapper.list)
+		{
+			tag(tagWrapper.tag).add(item);
+		}
+	}
+
 	@Override
 	protected void addTags(Provider provider)
 	{
-		tag(NylonItemTags.NYLON_INGOTS).add(NylonIngotItem.NYLON_INGOT_ITEM.get());
-		tag(NylonItemTags.NYLON_PLATES).add(NylonPlateItem.NYLON_PLATE_ITEM.get());
+		addAll(NYLON_INGOTS);
+		addAll(NYLON_PLATES);
 	}
 }
